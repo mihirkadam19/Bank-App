@@ -13,3 +13,7 @@ newManager.save()
 newCustomUser = CustomUser.objects.create(username=newEmployee.empid,user_type='manager')
 newCustomUser.set_password('John_Doe@123456789')
 newCustomUser.save()
+
+Sample user login
+100028
+Mike_Pike@55555533
