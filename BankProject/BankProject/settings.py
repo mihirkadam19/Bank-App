@@ -86,14 +86,6 @@ DATABASES = {
 }'''
 
 
-print("DB_ENGINE:", os.environ.get('DB_ENGINE'))
-print("DB_NAME:", os.environ.get('DB_NAME'))
-print("DB_USER:", os.environ.get('DB_USER'))
-print("DB_PASSWORD:", os.environ.get('DB_PASSWORD'))
-print("DB_HOST:", os.environ.get('DB_HOST'))
-print("DB_PORT:", os.environ.get('DB_PORT'))
-print("DB_SSL_DISABLED:", os.environ.get('DB_SSL_DISABLED'))
-
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DB_ENGINE'),
