@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-j71e=c!2qvd*2t2md4c1@#h1%o8f6f)art7*^gf03hvov-l#al
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'BankProject.wsgi.application'
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}'''
+}
 
 DATABASES = {
     'default': {
@@ -83,7 +83,24 @@ DATABASES = {
             'ssl': {'disabled': True}  # Disable SSL
         },
     }
+}'''
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.mysql'),
+        'NAME': os.environ.get('DB_NAME', ''),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
+        'OPTIONS': {
+            'ssl': {'disabled': os.environ.get('DB_SSL_DISABLED', 'False').lower() == 'true'}
+        },
+    }
 }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
