@@ -269,3 +269,7 @@ SELECT a.accno, p.balance, p.type, p.recentaccess, p.interestsrate, p.overdraft
                 LEFT JOIN account AS p ON p.accno = l.accno
                 WHERE c.customerid = 100019
                 ;
+
+CREATE USER 'some_user'@'172.0.0.%' IDENTIFIED BY 'mypassword';
+GRANT ALL PRIVILEGES ON some_db.* TO 'some_user'@'172.0.0.%';
+FLUSH PRIVILEGES;
